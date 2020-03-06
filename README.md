@@ -21,4 +21,6 @@
 
 ![locationTourMain](https://user-images.githubusercontent.com/53885622/76069451-3a102c80-5fd6-11ea-84a7-d2fc4943996a.png)
 
+![locationTourList](https://user-images.githubusercontent.com/53885622/76069954-18fc0b80-5fd7-11ea-938f-e86ddcfc2430.png)
+
 ![locationTourMap](https://user-images.githubusercontent.com/53885622/76069728-a68b2b80-5fd6-11ea-974c-f017d0b59243.png)
