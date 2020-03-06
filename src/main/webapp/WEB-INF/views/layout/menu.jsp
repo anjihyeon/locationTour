@@ -58,7 +58,7 @@
 		 <a class="p-2 text-muted" href="/tour/tourlist?type=39&pageNo=1">음식점</a>
 		 <a class="p-2 text-muted" href="/tour/tourlist?type=32&pageNo=1">숙박</a>
 		 <a class="p-2 text-muted" href="/tour/tourlist?type=38&pageNo=1">쇼핑센터</a>
-		 <a class="p-2 text-muted" href="#">지도</a>
+		 <a class="p-2 text-muted" href="/map">지도</a>
 	</nav>
 </div>
 </div>

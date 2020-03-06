@@ -15,8 +15,8 @@ private Long contenttypeid;//contenttypeid	콘텐츠타입ID
 private Long creaetedtime;//	createdtime	등록일
 private String firstimage;//	firstimage	대표이미지(원본)
 private String firstimage2;//	firstimage2	대표이미지(썸네일)
-private double mapx;//	mapx	GPS X좌표
-private double mapy;//	mapy	GPS Y좌표
+private String mapx;//	mapx	GPS X좌표
+private String mapy;//	mapy	GPS Y좌표
 private Long mlevel;//	mlevel	Map Level
 private String tel;//	tel	전화번호
 private String title;//	title	제목
