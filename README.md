@@ -20,3 +20,5 @@
 ## 참고
 
 ![locationTourMain](https://user-images.githubusercontent.com/53885622/76069451-3a102c80-5fd6-11ea-84a7-d2fc4943996a.png)
+
+![locationTourMap](https://user-images.githubusercontent.com/53885622/76069728-a68b2b80-5fd6-11ea-974c-f017d0b59243.png)
