@@ -8,7 +8,7 @@
 |사용 Tool|Eclipse, STS, Githab|
 |프로그래밍 언어|JAVA, JSP|
 |웹 표준 기술|HTML5, CSS, JavaScript, JQuery, Ajax|
-|프레임 워크|Spring, MyBatis, Bootstrap|
+|프레임 워크|Spring, Bootstrap|
 |서버|tomcat|
 
 ## 기능
