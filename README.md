@@ -1,4 +1,4 @@
-# 지역투어
+# 동네투어
 
 많은 사람들이 국내 여행에 대한 정보를 보다 편하게 접할 수 있었으면 하는 바람으로 개발을 시작했으며, 지역과 카테고리별로 나누며 지도를 이용해 가까운 관광지를 확인할 수 있는 정보공유 홈페이지입니다. 
 
@@ -19,8 +19,6 @@
 - 무한 스크롤
 
 ## 참고
-
-![locationTourMain](https://user-images.githubusercontent.com/53885622/76069451-3a102c80-5fd6-11ea-84a7-d2fc4943996a.png)
 
 ![locationTourList](https://user-images.githubusercontent.com/53885622/76069954-18fc0b80-5fd7-11ea-938f-e86ddcfc2430.png)
 
