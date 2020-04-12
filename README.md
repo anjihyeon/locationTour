@@ -19,6 +19,7 @@
 - 무한 스크롤
 
 ## 참고
+![동네투어메인](https://user-images.githubusercontent.com/53885622/79060747-d60f1100-7cc3-11ea-9492-3d8193f5a059.jpg)
 
 ![locationTourList](https://user-images.githubusercontent.com/53885622/76069954-18fc0b80-5fd7-11ea-938f-e86ddcfc2430.png)
 
