@@ -7,7 +7,7 @@
 	<title>Home</title>
 </head>
 <style>
-.row{
+.row {
 	position: absolute;
     top: 0;
     left: 0;
