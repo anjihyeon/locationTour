@@ -12,7 +12,7 @@ select{
 }
 .select{
 }
-#columns figure{
+#card{
 	text-align:center;
 	display:inline-block;
 	width: 33%;
@@ -20,11 +20,11 @@ select{
     margin-bottom: 15px;
     padding:10px;
 }
-#columns figure img{
-    width:300px;
+#card img{
+    width: 300px;
     height: 200px;
 }
-#columns figure figcaption{
+.card-title{
     padding:10px;
     margin-top:11px;
 }
@@ -39,10 +39,14 @@ $(document).ready(function () {
 	// 스크롤 이벤트시 발생
 	
 	$(window).scroll(function () {
-		 if($(window).scrollTop() == $(document).height() - $(window).height()) { 
+		 //if($(window).scrollTop() == $(document).height() - $(window).height()) { 
+	    //}
+		 var maxHeight = $(document).height();
+		 var currentScroll = $(window).scrollTop() + $(window).height();
+		 if (maxHeight <= currentScroll + 10) {
 	    	pageNo = pageNo +1;
-	        pageNoScroll();
-	    }
+	        pageNoScroll();	    			 
+		 }
 	});
 	$('#addrCode').on('change', function() {
 		var addrCode = this.value;
@@ -77,7 +81,7 @@ function pageNoScroll(){
 		dataType: "json",
 		success : function(data){         
 			$.each(data, function(idx, val) {
-				$("#columns").append("<figure><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'><img class='card-img-top' src='"+ val.firstimage2+"'></a><figcaption><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'>"+val.title+"["+val.readcount+"]</a></figcaption></figure>");
+				$("#columns").append("<div class='col-sm-4' id='card'><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'><img class='card-img-top' src='"+ val.firstimage2+"'></a><div class='card-body'><a class='card-title' href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'>"+val.title+" ["+val.readcount+"]</a></div></div>");
 			});
 		},error:function(){
 			alert("ERROR");	
@@ -119,17 +123,19 @@ function pageNoScroll(){
 			<option value="${c.code}">${c.name}</option>
 		</c:forEach>
 		</select>
-		<h4 class='h4'></h4><br>	
+		<h4 class='h4'></h4><br><br>	
 </div>
 <div>
-	<div id="columns">
+	<div class="row" id="columns">
 		<c:forEach items="${tList}" var="t">	
-	      <figure>
-	      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
-			<img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
-	      </a>
-	        <figcaption><a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">${t.title}  [${t.readcount}]</a></figcaption>
-	      </figure>
+	      <div class="col-sm-4" id="card">
+		      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
+				<img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
+		      </a>
+		      <div class="card-body">
+		      	<a class="card-title" href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">${t.title}  [${t.readcount}]</a>
+		      </div>
+	      </div>
 		</c:forEach>
 	</div>
 </div>

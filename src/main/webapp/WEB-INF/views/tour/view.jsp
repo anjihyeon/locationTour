@@ -121,7 +121,7 @@ ${ti.overview } <br>
 </div>
 <c:forEach items="${tiList}" var="ti">
 <div id="map" style="width:800px;height:400px;"></div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fb9aed23f848063a34eed98d2d7ea36b"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=fb9aed23f848063a34eed98d2d7ea36b"></script>
 <script type="text/javascript">
 var mapx = ${ti.mapx};
 var mapy = ${ti.mapy};

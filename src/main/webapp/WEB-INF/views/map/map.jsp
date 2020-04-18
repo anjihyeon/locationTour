@@ -47,31 +47,23 @@
 </head>
 <body>
 <div class="container">
-<div>[관광지 100위 지도]</div>
 <div id="map" style="width:1100px;height:700px;"></div>
 </div>
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fb9aed23f848063a34eed98d2d7ea36b"></script>
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=fb9aed23f848063a34eed98d2d7ea36b"></script>
 <script type="text/javascript">
 document.addEventListener("DOMContentLoaded", function() {
-	  if(navigator.geolocation) {
-	        navigator.geolocation.getCurrentPosition(getLocation, function(error) {
-	            consol.log(error.message);    
-	        });
-	    } else {
-	        consol.log("Geolocation을 지원하지 않는 브라우저 입니다.");
-	    }
-    function getLocation(position) {
-        var latitud = position.coords.latitude;
-        var longitude = position.coords.longitude;
+ 	Location();
+ 	
+    function Location() {
         var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
         var mapOption = {
-              center : new daum.maps.LatLng(latitud, longitude)    // 지도의 중심좌표
+              center : new daum.maps.LatLng(37.1710882649, 126.6226033034)    // 지도의 중심좌표
             , level : 3    // 지도의 확대레벨
         };
         // 지도를 생성
         var map = new daum.maps.Map(mapContainer, mapOption);
         // 마커가 표시될 위치
-        var markerPosition = new daum.maps.LatLng(latitud, longitude);
+        var markerPosition = new daum.maps.LatLng(37.1710882649, 126.6226033034);
         // 마커를 생성
         var marker = new daum.maps.Marker({ position:markerPosition });
         var infowindow = null;
