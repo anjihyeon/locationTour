@@ -18,7 +18,12 @@
 h2,h3{
 	font-weight: bold;
 }
+#sharebtn{
+	text-align: center;
+	
+}
 </style>
+<script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
 <div class="container">
@@ -28,14 +33,19 @@ h2,h3{
 <h2>${ti.title}</h2>
 주소 : ${ti.addr1 }<br>
 ${ti.overview } <br>
-
 </c:forEach>
 </div>
 <div>
 <br>
 <h3>이용안내</h3>
 <c:forEach items="${tList}" var="t">
+		<script>
+			var contentid = ${t.contentid};
+			var type = ${t.contenttypeid};
+		</script>
 <c:choose>
+
+
 		<c:when test="${t.contenttypeid eq 12}"> <!-- 관광지 -->
 			체험안내 : ${t.expguide} <br>
 			문의 및 안내 : ${t.infocenter} <br>
@@ -119,6 +129,7 @@ ${ti.overview } <br>
 </c:forEach>
 <br>
 </div>
+
 <c:forEach items="${tiList}" var="ti">
 <div id="map" style="width:800px;height:400px;"></div>
 <script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=fb9aed23f848063a34eed98d2d7ea36b"></script>
@@ -159,7 +170,67 @@ function displayMarker() {
  // kakao.maps.event.removeListener(map, 'tilesloaded', displayMarker);
 }
 </script>
+<script type="text/javascript">
+  // input your appkey
+  	Kakao.init('fb9aed23f848063a34eed98d2d7ea36b');
+	
+  	var title = '${ti.title}';
+	var imgurl = '${ti.firstimage}'; 
+ 	
+	function sendLink() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: title,
+        description: '',
+        imageUrl: imgurl,
+        link: {
+          mobileWebUrl: 'http://13.209.227.5/tour/view?type='+type+'&contentid='+contentid+'',
+          webUrl: 'http://13.209.227.5/tour/view?type='+type+'&contentid='+contentid+'',
+        },
+      },
+      social: {
+        likeCount: 286,
+        commentCount: 45,
+        sharedCount: 845,
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+        {
+          title: '앱으로 보기',
+          link: {
+            mobileWebUrl: 'https://developers.kakao.com',
+            webUrl: 'https://developers.kakao.com',
+          },
+        },
+      ],
+    })
+  }
+</script>
 </c:forEach>
+<div id="sharebtn">
+	<br>
+	<a id="kakao-link-btn" href="javascript:sendLink()">
+	  <img
+	    src="//developers.kakao.com/assets/img/about/logos/kakaolink/kakaolink_btn_medium.png"
+	   style="width: 40px; height: 40px;"/>
+	</a>카카오톡 공유하기
+		
+	<span>
+		<script type="text/javascript" src="https://ssl.pstatic.net/share/js/naver_sharebutton.js"></script>
+		<script type="text/javascript">
+		new ShareNaver.makeButton({"type": "f"});
+		</script>
+	네이버 공유하기
+	</span>
+	<br><br>
+</div>
 </div>
 </body>
 </html>
