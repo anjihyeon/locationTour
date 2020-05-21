@@ -19,8 +19,8 @@
 - 무한 스크롤
 
 ## 참고
-![동네투어메인](https://user-images.githubusercontent.com/53885622/79060747-d60f1100-7cc3-11ea-9492-3d8193f5a059.jpg)
+![locationTourMain](https://user-images.githubusercontent.com/53885622/82446407-8f41e180-9ae1-11ea-9f53-15b9cf1df8c2.png)
 
-![locationTourList](https://user-images.githubusercontent.com/53885622/76069954-18fc0b80-5fd7-11ea-938f-e86ddcfc2430.png)
+![locationTourList](https://user-images.githubusercontent.com/53885622/82446402-8cdf8780-9ae1-11ea-94cb-1f4a567d1860.png)
 
-![locationTourMap](https://user-images.githubusercontent.com/53885622/76069728-a68b2b80-5fd6-11ea-974c-f017d0b59243.png)
+![locationTourMap](https://user-images.githubusercontent.com/53885622/82446409-8fda7800-9ae1-11ea-9279-89f7c33f24fb.png)
