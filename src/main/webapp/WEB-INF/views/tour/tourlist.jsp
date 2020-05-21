@@ -4,29 +4,45 @@
     pageEncoding="UTF-8"%>
     
 <html>
+<meta charset="UTF-8">
+	<title></title>
+<script src="/resources/js/jquery.imageScroll.js"></script>
+
 <style>
 select{
   display: inline-block;
   float: left;
   margin-left: 10px;
 }
-.select{
-}
-#card{
+.card{
 	text-align:center;
+	width: 300px;
+	height: 300px;
 	display:inline-block;
-	width: 33%;
-   	margin:0;
-    margin-bottom: 15px;
-    padding:10px;
+    margin-bottom: 10px;
 }
-#card img{
-    width: 300px;
-    height: 200px;
+.card img{
+	width: 320px;
+	height: 200px;
 }
-.card-title{
-    padding:10px;
-    margin-top:11px;
+.listmain{
+	width: 100%;
+	height: 400px;
+	background-size:  cover;
+}
+.listmain p {
+	text-align: center;
+}
+.inner{
+    overflow: hidden;
+}
+ 
+.inner img{
+    transition: all 1.5s ease;
+}
+ 
+.inner:hover img{
+    transform: scale(1.5);
 }
 </style>
 <head>
@@ -37,6 +53,9 @@ var contenttypeid =${type};
 $(document).ready(function () {
 	// 자동으로 늘어나는 스크롤
 	// 스크롤 이벤트시 발생
+	$('.listmain').imageScroll({
+		 coverRatio: 0.5
+	});
 	
 	$(window).scroll(function () {
 		 //if($(window).scrollTop() == $(document).height() - $(window).height()) { 
@@ -81,7 +100,7 @@ function pageNoScroll(){
 		dataType: "json",
 		success : function(data){         
 			$.each(data, function(idx, val) {
-				$("#columns").append("<div class='col-sm-4' id='card'><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'><img class='card-img-top' src='"+ val.firstimage2+"'></a><div class='card-body'><a class='card-title' href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'>"+val.title+" ["+val.readcount+"]</a></div></div>");
+				$("#columns").append("<div class='col-md-4'><div class='card shadow' style='width: 20rem;'><div class='inner'><img class='card-img-top' src="+ val.firstimage2 +"></div><div class='card-body text-center'><a href='/tour/view?type=" + val.contenttypeid +"&contentid="+ val.contentid + "><h5 class='card-title'>"+ val.title +"</h5></a></div></div></div>");
 			});
 		},error:function(){
 			alert("ERROR");	
@@ -89,10 +108,54 @@ function pageNoScroll(){
 	})
 }
 </script>
-<meta charset="UTF-8">
-	<title></title>
 </head>
 <body>
+
+<c:choose>
+	<c:when test="${type eq 12}">
+	<div class="listmain border-bottom shadow-sm" data-image="/resources/img/img1.jpg">
+		<p>관광지</p>	
+	</div>
+	</c:when>
+	
+	<c:when test="${type eq 14}">
+	<div class="listmain border-bottom shadow-sm" data-image='/resources/img/img8.jpg'>	
+		<p>문화시설</p>
+	</div>	
+	</c:when>
+	
+	<c:when test="${type eq 15}">
+	<div class="listmain border-bottom shadow-sm"  data-image='/resources/img/img9.jpg'>	
+		<p>행사/공연/축제</p>
+	</div>
+	</c:when>
+	
+	<c:when test="${type eq 28}">
+	<div class="listmain border-bottom shadow-sm"  data-image='/resources/img/img3.jpg'>	
+		<p>레포츠</p>
+	</div>
+	</c:when>
+	
+	<c:when test="${type eq 32}">
+	<div class="listmain border-bottom shadow-sm"  data-image='/resources/img/img6.jpg'>	
+		<p>숙박</p>
+		</div>
+	</c:when>
+	
+	<c:when test="${type eq 38}">
+	<div class="listmain border-bottom shadow-sm"  data-image='/resources/img/img5.jpg'>	
+		<p>쇼핑</p>
+	</div>	
+	</c:when>
+	
+	<c:when test="${type eq 39}">
+	<div class="listmain border-bottom shadow-sm"  data-image='/resources/img/img7.jpg'>	
+		<p>음식점</p>
+		</div>
+	</c:when>
+</c:choose>	
+
+</div>
 <div  class="container">
 <div class="select">
 
@@ -126,18 +189,24 @@ function pageNoScroll(){
 		<h4 class='h4'></h4><br><br>	
 </div>
 <div>
-	<div class="row" id="columns">
-		<c:forEach items="${tList}" var="t">	
-	      <div class="col-sm-4" id="card">
-		      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
-				<img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
-		      </a>
-		      <div class="card-body">
-		      	<a class="card-title" href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">${t.title}  [${t.readcount}]</a>
-		      </div>
-	      </div>
-		</c:forEach>
-	</div>
+	    <div class="container">
+       	 	<div class="row" id="columns">
+			<c:forEach items="${tList}" var="t">	
+            <div class="col-md-4">
+                <div class="card shadow" style="width: 20rem;">
+                    <div class="inner">
+                        <img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
+                    </div>
+                    <div class="card-body text-center">
+                      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
+                      ${t.title}
+					</a>                   
+                    </div>
+                  </div>
+            </div>
+            </c:forEach>
+        	</div>
+        </div>
 </div>
 </div>
 </body>

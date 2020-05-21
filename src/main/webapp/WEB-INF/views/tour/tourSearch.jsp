@@ -7,21 +7,28 @@
 <meta charset="UTF-8">
 <title></title>
 <style>
-#columns figure{
+.card{
 	text-align:center;
+	width: 300px;
+	height: 300px;
 	display:inline-block;
-	width: 33%;
-   	margin:0;
-    margin-bottom: 15px;
-    padding:10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
-#columns figure img{
-    width:300px;
-    height: 200px;
+.card img{
+	width: 320px;
+	height: 200px;
 }
-#columns figure figcaption{
-    padding:10px;
-    margin-top:11px;
+.inner{
+    overflow: hidden;
+}
+ 
+.inner img{
+    transition: all 1.5s ease;
+}
+ 
+.inner:hover img{
+    transform: scale(1.5);
 }
 </style>
 <script type="text/javascript">
@@ -44,7 +51,7 @@ function pageNoScroll(){
 		dataType: "json",
 		success : function(data){         
 			$.each(data, function(idx, val) {
-				$("#columns").append("<figure><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'><img class='card-img-top' src='"+ val.firstimage2 + "'></a><figcaption><a href='/tour/view?type=" + val.contenttypeid + "&contentid=" + val.contentid + "'>"+val.title+"["+val.readcount+"]</a></figcaption></figure>");
+				$("#columns").append("<div class='col-md-4'><div class='card shadow' style='width: 20rem;'><div class='inner'><img class='card-img-top' src="+ val.firstimage2 +"></div><div class='card-body text-center'><a href='/tour/view?type=" + val.contenttypeid +"&contentid="+ val.contentid + "><h5 class='card-title'>"+ val.title +"</h5></a></div></div></div>");
 			});
 		},error:function(){
 			alert("결과가 없습니다.");	
@@ -55,16 +62,22 @@ function pageNoScroll(){
 </head>
 <body>
 <div class="container">
-	<div id="columns">
-		<c:forEach items="${tsList}" var="t">	
-	      <figure>
-	      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
-			<img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
-	      </a>
-	        <figcaption><a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">${t.title}  [${t.readcount}]</a></figcaption>
-	      </figure>
-		</c:forEach>
-	</div>
-</div>
+       	 	<div class="row" id="columns">
+			<c:forEach items="${tsList}" var="t">	
+            <div class="col-md-4">
+                <div class="card shadow" style="width: 20rem;">
+                    <div class="inner">
+                        <img class="card-img-top" src="${t.firstimage2==null ? '/resources/img/white.jpg':t.firstimage2}">
+                    </div>
+                    <div class="card-body text-center">
+                      <a href="/tour/view?type=${t.contenttypeid}&contentid=${t.contentid}">
+                      ${t.title}
+					</a>                   
+                    </div>
+                  </div>
+            </div>
+            </c:forEach>
+        	</div>
+        </div>
 </body>
 </html>

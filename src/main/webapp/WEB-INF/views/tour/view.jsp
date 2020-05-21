@@ -31,6 +31,7 @@ h2,h3{
 <c:forEach items="${tiList }" var="ti">
 <img src="${ti.firstimage}"> <br>
 <h2>${ti.title}</h2>
+<div style="border: 2px solid black;"></div>
 주소 : ${ti.addr1 }<br>
 ${ti.overview } <br>
 </c:forEach>
@@ -38,6 +39,7 @@ ${ti.overview } <br>
 <div>
 <br>
 <h3>이용안내</h3>
+<div style="border: 2px solid black;"></div>
 <c:forEach items="${tList}" var="t">
 		<script>
 			var contentid = ${t.contentid};
