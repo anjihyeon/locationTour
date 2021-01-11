@@ -9,7 +9,7 @@
 |프로그래밍 언어|JAVA, JSP|
 |웹 표준 기술|HTML5, CSS, JavaScript, JQuery, Ajax|
 |프레임 워크|Spring, Bootstrap|
-|서버|tomcat,AWS ES2|
+|서버|tomcat, Azure|
 
 ## 기능
 - 관광지,문화시설,축제/공연/행사,레포츠,음식점,숙박,쇼핑센터 각 정보조회,
