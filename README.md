@@ -8,7 +8,7 @@
 |사용 Tool|Eclipse, STS, Githab|
 |프로그래밍 언어|JAVA, JSP|
 |웹 표준 기술|HTML5, CSS, JavaScript, JQuery, Ajax|
-|프레임 워크|Spring, Bootstrap|
+|프레임 워크|Spring, Bootstrap5|
 |서버|tomcat, Azure|
 
 ## 기능
@@ -17,3 +17,5 @@
 - 지역과 카테고리별로 검색
 - 키워드 검색
 - 무한 스크롤
+- 모바일 최적화
+- 반응형 사이트
